@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box, VStack, Container, Button, HStack, Input } from "@chakra-ui/react"
+import { Message } from "./components/Message";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box bg = {"red.50"}>
+      <Container h={"100vh"} bg={"white"} >
+         {/* vertical stack - flex column justify content centre */}
+        <VStack h = {"full"} bg ={"telegram.100"} paddingY={"4"}> 
+          
+          <Button w={"full"} colorScheme={"red"}>Logout</Button>
+
+          {/* for messages */}
+          <VStack h={"full"} w={"full"} bg={"telegram.100"} overflowY="auto">
+            <Message  text = "sample Text" uri = "#"/>
+            <Message user = "me" text = "sample Text" uri = "#"/>
+          </VStack>
+
+          
+          <form style={{ width: "100%" }}>
+            <HStack>
+              <Input placeholder="Enter a Message..."/>
+              <Button colorScheme={"purple"} type="submit">Send</Button>  
+            </HStack>
+          </form>
+        </VStack>
+      </Container>
+    </Box>
   );
 }
 
